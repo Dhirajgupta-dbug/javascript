@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country switch</title>
+    <style>
+      .bigbox{
+        height: 600px;
+        width: 550px;
+        background-color: rgb(7, 248, 184);
+        border:2px solid navy ;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+       
+        align-items: center;
+        text-align: center;
+        
+      }
+      .h1{
+        background-color: white;
+        width: 300px;
+        border: 0px;
+        border-radius:35px ;
+      }
+      select,input{
+        width: 200px;
+        border:1.5px solid black;
+        border-radius: 5px;
+        font-size: 15px;
+      }
+      b{
+        font-size: 20px;
+      }
+      #Check{
+        text-align: center;
+        width: 120px;
+        background-color:gray;
+        font-weight: bold;
+      }
+   
+    </style>
+</head>
+<body>
+<div class="bigbox">
+    <h1 class="h1">Country switch</h1>
+     <marquee behavior="alternate" scrollamount="5"><h1>Enjoy your Country Tour! </h1></marquee><br>
+     <form name="world">
+        <b>Country Name :</b><select name="country">
+            <option>Select Your Country</option>
+            <option value="india">India(Bharat,Hindustan)</option>
+            <option value="australia">Australia</option>
+            <option value="bhutan">Bhutan</option>
+            <option value="canada">Canada</option>
+            <option value="denmark">Denmark</option>
+            <option value="egypt">Egypt</option>
+            <option value="finland">Finland</option>
+            <option value="germany">Germany</option>
+            <option value="indonesia">Indonesia</option>
+            <option value="jordan">Jordan</option>
+            
+        </select><br><br>
+        <input type="button" id="Check" value="Check Details" onclick="Check()"><br><br>
+        <b>Capital of country:</b><input type="text" name="capital" readonly><br><br>
+        <b>Currency of country:</b><input type="text" name="currency" readonly><br><br>
+        <b>Language of country:</b><input type="text" name="Language" readonly><br><br>
+     </form>
+    </div>
+    <script>
+        let world,country,value,capital,currency,Language;
+        function Check() {
+            world=(document.world.country.value);
+            switch(world){
+                case "india":
+                    capital="New Delhi";
+                    currency="Indian Rupee";
+                    Language="Hindi,English,Marathi";
+                    
+                    break;
+                case "australia":
+                    capital="Canberra";
+                    currency="Australian Dollar";
+                    Language="English"
+                    break;
+                case "bhutan":
+                    capital="Thimphu";
+                    currency="Bhutanese Ngultrum";
+                    Language="Drogkha";
+                    break;
+                case "canada":
+                    capital="Ottawa";
+                    currency="Canadian Dollar";
+                    Language="English,French";
+                    break;
+                case "denmark":
+                    capital="Copenhagen";
+                    currency="Danish Krone";
+                    Language="Danish";
+                    break;
+                case "egypt":
+                    capital="Cairo";
+                    currency="Egyptian Pound";
+                    Language="Arabic";
+                    break;
+                case "finland":
+                    capital="Helsinki";
+                    currency="Euro";
+                    Language="Finnish";
+                    break;
+                case "germany":
+                    capital="Berlin";
+                    currency="Euro";
+                    Language="German";
+                    break;
+                case "indonesia":
+                    capital="Jakarta";
+                    currency="Rupiah";
+                    Language="Indonesian";
+                    break;
+                case "jordan":
+                    capital="Amman";
+                    currency="Jordanian Dinar";
+                    Language="Arabic";
+                    break;
+                    default:
+                        document.write("Not Selected!");
+            }
+           
+            document.world.capital.value  = capital;
+            document.world.currency.value  = currency;
+            document.world.Language.value  = Language;
+
+        }
+
+    </script>
+</body>
+</html>
