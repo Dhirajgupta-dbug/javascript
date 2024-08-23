@@ -8,7 +8,7 @@
       .bigbox{
         height: 600px;
         width: 550px;
-        background-color: rgb(7, 248, 184);
+        background-color: rgb(136, 138, 133);
         border:2px solid navy ;
         border-radius: 15px;
         display: flex;
@@ -29,14 +29,15 @@
         border:1.5px solid black;
         border-radius: 5px;
         font-size: 15px;
+        font-weight: bold;
       }
       b{
         font-size: 20px;
       }
-      #Check{
+      #btn{
         text-align: center;
         width: 120px;
-        background-color:gray;
+        background-color:rgb(219, 137, 137);
         font-weight: bold;
       }
    
@@ -61,7 +62,7 @@
             <option value="jordan">Jordan</option>
             
         </select><br><br>
-        <input type="button" id="Check" value="Check Details" onclick="Check()"><br><br>
+        <input type="button" id="btn" value="Check Details" onclick="Check()"><br><br>
         <b>Capital of country:</b><input type="text" name="capital" readonly><br><br>
         <b>Currency of country:</b><input type="text" name="currency" readonly><br><br>
         <b>Language of country:</b><input type="text" name="Language" readonly><br><br>
@@ -124,7 +125,7 @@
                     Language="Arabic";
                     break;
                     default:
-                        document.write("Not Selected!");
+                        alert("Please Select Your Country!");
             }
            
             document.world.capital.value  = capital;
