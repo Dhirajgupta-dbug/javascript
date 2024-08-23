@@ -3,137 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Country switch</title>
+    <title>JavaScript if else </title>
     <style>
-      .bigbox{
-        height: 600px;
-        width: 550px;
-        background-color: rgb(136, 138, 133);
-        border:2px solid navy ;
-        border-radius: 15px;
-        display: flex;
-        flex-direction: column;
-       
-        align-items: center;
-        text-align: center;
-        
-      }
-      .h1{
-        background-color: white;
-        width: 300px;
-        border: 0px;
-        border-radius:35px ;
-      }
-      select,input{
-        width: 200px;
-        border:1.5px solid black;
-        border-radius: 5px;
-        font-size: 15px;
-        font-weight: bold;
-      }
-      b{
-        font-size: 20px;
-      }
-      #btn{
-        text-align: center;
-        width: 120px;
-        background-color:rgb(219, 137, 137);
-        font-weight: bold;
-      }
-   
+        *{
+            padding:0;
+        }
+        .bigbox{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height:45rem;
+
+        }
+        .bigbox::before{
+            content: "";
+            position: absolute;
+            top:0;
+            background:url(car2.jpg)no-repeat center/cover;
+            height:100%;
+            width:100%;
+        }
+        .login{
+            border: 1px solid rgba(155, 117, 117, 0.164);
+            height: 30rem;
+            width: 25rem;
+            border:1px solid rgba(241, 232, 232, 0.521);
+            border-radius: 30px;
+            background-color:rgba(28, 158, 126, 0.185);
+            box-shadow:0 0 100px white;
+            align-items: center;
+            text-align: center;
+            z-index: 2;
+
+        }
+        .login:hover{
+            transition:0.3s;
+            transform:scale(1.05);
+        }
+        input{
+           width:20rem;
+           height: 2rem;
+           border:2px solid lightsteelblue;
+           border-radius:30px;
+        }
+        input:hover{
+            transition:0.5s;
+            transform: scale(1.03);
+        }
+        input:active{
+            transition:0.5s;
+            transform: scale(1.10);
+        }
+        label{
+            position: relative;
+            left:-110px;
+            text-shadow: 0 0 5px white;
+             font-weight: bold;
+             font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        #sub{
+            position:relative;
+            top: 5rem;
+            height:2.5rem;
+            width: 7rem;
+            border: 2px solid rgba(41, 39, 39, 0.336);
+            border-radius: 25px;
+            background-color:white;
+            color: teal;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        #sub:hover{
+            transition:0.5s;
+            transform: scale(1.10);
+        }
+        #sub:active{
+            color: black;
+            box-shadow: 0 0 50px white;
+        }
     </style>
 </head>
 <body>
-<div class="bigbox">
-    <h1 class="h1">Country switch</h1>
-     <marquee behavior="alternate" scrollamount="5"><h1>Enjoy your Country Tour! </h1></marquee><br>
-     <form name="world">
-        <b>Country Name :</b><select name="country">
-            <option>Select Your Country</option>
-            <option value="india">India(Bharat,Hindustan)</option>
-            <option value="australia">Australia</option>
-            <option value="bhutan">Bhutan</option>
-            <option value="canada">Canada</option>
-            <option value="denmark">Denmark</option>
-            <option value="egypt">Egypt</option>
-            <option value="finland">Finland</option>
-            <option value="germany">Germany</option>
-            <option value="indonesia">Indonesia</option>
-            <option value="jordan">Jordan</option>
-            
-        </select><br><br>
-        <input type="button" id="btn" value="Check Details" onclick="Check()"><br><br>
-        <b>Capital of country:</b><input type="text" name="capital" readonly><br><br>
-        <b>Currency of country:</b><input type="text" name="currency" readonly><br><br>
-        <b>Language of country:</b><input type="text" name="Language" readonly><br><br>
-     </form>
+    <div class="bigbox" target="black">
+        <div class="login">
+        <h1 style="font-size:2.5rem;text-shadow:0 0 5px white;">Log in</h1>
+        <form  >
+        <label for="name">User name</label><br><input type="text" name="us" id="user"><br><br><br>
+        <label for="pass">Password</label><br><input type="password" name="ps" id="pass">
+       
+        <input type="button" value="Sign In" id="sub" onclick="Login()">
+    </form>
+        </div>
     </div>
-    <script>
-        let world,country,value,capital,currency,Language;
-        function Check() {
-            world=(document.world.country.value);
-            switch(world){
-                case "india":
-                    capital="New Delhi";
-                    currency="Indian Rupee";
-                    Language="Hindi,English,Marathi";
-                    
-                    break;
-                case "australia":
-                    capital="Canberra";
-                    currency="Australian Dollar";
-                    Language="English"
-                    break;
-                case "bhutan":
-                    capital="Thimphu";
-                    currency="Bhutanese Ngultrum";
-                    Language="Drogkha";
-                    break;
-                case "canada":
-                    capital="Ottawa";
-                    currency="Canadian Dollar";
-                    Language="English,French";
-                    break;
-                case "denmark":
-                    capital="Copenhagen";
-                    currency="Danish Krone";
-                    Language="Danish";
-                    break;
-                case "egypt":
-                    capital="Cairo";
-                    currency="Egyptian Pound";
-                    Language="Arabic";
-                    break;
-                case "finland":
-                    capital="Helsinki";
-                    currency="Euro";
-                    Language="Finnish";
-                    break;
-                case "germany":
-                    capital="Berlin";
-                    currency="Euro";
-                    Language="German";
-                    break;
-                case "indonesia":
-                    capital="Jakarta";
-                    currency="Rupiah";
-                    Language="Indonesian";
-                    break;
-                case "jordan":
-                    capital="Amman";
-                    currency="Jordanian Dinar";
-                    Language="Arabic";
-                    break;
-                    default:
-                        alert("Please Select Your Country!");
-            }
-           
-            document.world.capital.value  = capital;
-            document.world.currency.value  = currency;
-            document.world.Language.value  = Language;
+    <script >
+        //  -----Login access---(type - 1)
+        
 
+        function Login() {
+         let User = document.getElementById("user").value;
+         let Pass = document.getElementById("pass").value;
+         if(User=="Dhiraj" && Pass==123){
+           window.location.href='country.html';
+         }
+         else{
+            alert("Invalid User Name or Password !");
+         }
         }
+        
+        // -----Login access---(type - 2)
 
-    </script>
+    //    function Login() {
+    //     let user=document.frm.us.value;
+    //     let pass=document.frm.ps.value;
+
+    //     if(user=="Dhiraj" && pass==123)
+    //    {
+    //     alert("Login Success");
+    //     window.location.href("details");
+    //    }
+    //    else{
+    //     alert("Invalid User Name or Password");
+    //    }
+    //    }
+
+
+    //    let password;
+    //    do{
+    //    password =prompt("Password given by Dhiraj");
+    //    }while(password !=="D-coder");
+
+        
+        // var time=9;
+        // if(time>6 && time<12){
+        //     document.write("<h1>Good Morning");
+        // }
+        // else if(time>12 && time<17){
+        //     document.write("<h1>Good Evening");
+        // }
+        // else{
+        //     document.write("<h1>Good Night");
+        // }
+// ----let double variable does showing error---
+    //   let name="Dhiraj";
+    //   {
+    //     let name="Rohny";
+    //     console.log(name);
+    //   }
+    //   console.log(name);
+
+    // //  ----- const do not work if else statment///---
+    //   const num1=15;
+    //   const num2=10;
+    //   console.log(num1);
+    //   console.log(num2);
+     
+     
+        //  /----Replacing the string value///---
+        // var str="Write Replace"
+        // var replace=str.replace("Write Replace","Wellcome to the javascript");
+        
+        // console.log(replace);
+
+
+        // alert("This is a javascript message!!");
+
+        // prompt statment---------(IMP)!
+
+        // let name=prompt("Please enter your name","Guest");
+        // console.log(`My name is ${name}`);
+        // document.write(`<h1>My name is ${name}</h1>`);
+
+        // var deletpost=confirm("Do you really want to delet the post?");
+        // document.write(`${deletpost}`);
+
+        // if(deletpost){
+        //     document.write("<h1>Your post has been deleted Successfully!</h1>");
+        // }
+        // else{
+        //     document.write("<h1>Your post has not been deleted...Sorry!</h1>");
+        // }
+        // User name and password access----
+
+        // let user="Dhiraj";
+        // let pass="students";
+        // if(user=="Dhiraj" && pass=="student"){
+        //     document.write("Access Granted");
+        // }
+        // else{
+        //     document.write("Access Denied");
+        // }
+        // ======Number switch function (prompt)====
+
+  //         let weeks=parseInt(prompt("Enter your week number"));
+  //         switch(weeks){
+  //       case 1:
+  //       document.write("<h2>Monday");
+  //       break;
+  //     case 2:
+  //   document.write("<h2>Tuesday</ h2>");
+  // break;
+  //    case 3:
+  //   document.write("<h2>Wedensday</ h2>");
+  // break;
+  //      case 4:
+  //       document.write("<h2>Thursday</ h2>");
+  //       break;
+  //       case 5:
+  //         document.write("<h2>Friday</ h2>");
+  //         break;
+  //         case 6:
+  //           document.write("<h2>Saturday</ h2>");
+  //           break;
+  //           default:
+  //             document.write("<h2>Invalid week number</ h2>");
+  //      }
+        //    let n=0;
+        //    for(n=0;n<=10;n++){
+        //     document.write(n);
+        //    }
+        //    let friends=["Dhiraj",123213,"Amit",false,4324234,"Shadan",true];
+        //    for (let n=0;n<friends.length;n++){
+        //     document.write("<br>","This is  "+friends[n]);
+        //     document.write(friends.sort());
+        // }
+        // document.write(friends.sort());
+        //     friends.forEach(function f(element){
+        //         document.write("<br>   ","Wellcome  "+element);
+        //     })
+
+        //  -----------Functions-----------
+
+        // let name1="dhiraj"
+        // let name2="shadan"
+        // let name3="amit"
+        // let dep="Software engeneer"
+      
+        // function present(name,dep){
+        //     console.log(name+"  is an itech student in "+dep);
+        // }
+
+</script>
 </body>
 </html>
