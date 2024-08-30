@@ -1,100 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS data entry</title>
+    <title>Country switch</title>
     <style>
-        form {
-            width: 400px;
-            height: 250px;
-
-        }
-
-        fieldset {
-            border: 2px solid black;
-        }
-
-        textarea {
-            box-sizing: border-box;
-            width: 400px;
-            height: 250px;
-            background: teal;
-            color: white;
-            font-weight: bold;
-        }
-
-        .center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        input {
-            margin: 0 5px;
-        }
-    </style>
-    <script>
-        var Mobile = [" "];
-        function Add(){
-            var dt1 = document.frm.txt.value;
-            Mobile.push(dt1);
-            document.frm.area.value=Mobile;
-            document.frm.txt.value="";
-            document.getElementById('txt').focus();
-        }
-        function srch(){
-            var dt2 = document.frm.txt.value;
-            var d = 0;
-            
-            for (i=0;i<=Mobile.length;i++)
-        {
-            if(Mobile[i] == dt2)
-        {
-            d=1;
-            break;
-        }
-        }
-        if(d==1)
-        {
-            document.frm.area.value=dt2+" is Availible in list";
-        }
-        else{
-            document.frm.area.value=dt2+" is out of list";
-        }
-        }
-        function Del(){
-            var dt3 = document.frm.txt.value;
-
-            for(i=0;i<=Mobile.length;i++){
-                if(Mobile[i] == dt3){
-                    delete Mobile[i];
-                    break;
-            }
-            }   
-            document.frm.txt.value="";
-            document.frm.area.value=Mobile;
-        }
-    </script>
-</head>
-
-<body>
-    <form name="frm">
-        <fieldset>
-            <legend>Mobile Shop</legend>
-            Enter Phone Name :<input type="text" name="txt" id="txt"><br><br>
-            <div class="center">
-                <input type="button" value="Add to list" onclick="Add()">
-                <input type="button" value="Search" onclick="srch()">
-                <input type="button" value="Delet" onclick="Del()">
-            </div><br>
-            <textarea name="area" rows="4" cols="25" disabled></textarea>
-        </fieldset>
-        <a href="country.html">Restart</a>
-    </form>
+      .bigbox{
+        height: 600px;
+        width: 550px;
+        background-color: rgb(24, 211, 186);
+        border:2px solid navy ;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+       
+        align-items: center;
+        text-align: center;
+        
+      }
+      .h1{
+        background-color: white;
+        width: 300px;
+        border: 0px;
+        border-radius:35px ;
+      }
+      select,input{
+        width: 200px;
+        border:1.5px solid black;
+        border-radius: 5px;
+        font-size: 15px;
+        font-weight: bold;
+      }
+      b{
+        font-size: 20px;
+      }
+      #btn{
+        text-align: center;
+        width: 120px;
+        background-color:rgb(219, 137, 137);
+        font-weight: bold;
+      }
    
+    </style>
+</head>
+<body>
+<div class="bigbox">
+    <h1 class="h1">Country switch</h1>
+     <marquee behavior="alternate" scrollamount="5"><h1 style="color: red;  ">Enjoy your Country Tour! </h1></marquee><br>
+     <form name="world">
+        <b>Country Name :</b><select name="country">
+            <option>Select Your Country</option>
+            <option value="india">India(Bharat,Hindustan)</option>
+            <option value="australia">Australia</option>
+            <option value="bhutan">Bhutan</option>
+            <option value="canada">Canada</option>
+            <option value="denmark">Denmark</option>
+            <option value="egypt">Egypt</option>
+            <option value="finland">Finland</option>
+            <option value="germany">Germany</option>
+            <option value="indonesia">Indonesia</option>
+            <option value="jordan">Jordan</option>
+            
+        </select><br><br>
+        <input type="button" id="btn" value="Check Details" onclick="Check()"><br><br>
+        <b>Capital of country:</b><input type="text" name="capital" readonly><br><br>
+        <b>Currency of country:</b><input type="text" name="currency" readonly><br><br>
+        <b>Language of country:</b><input type="text" name="Language" readonly><br><br>
+     </form><br><br><br><br><br>
+     <a href="EvenOdd.html">Even Odd Number</a>
+    </div>
+    <script>
+        let world,country,value,capital,currency,Language;
+        function Check() {
+            world=(document.world.country.value);
+            switch(world){
+                case "india":
+                    capital="New Delhi";
+                    currency="Indian Rupee";
+                    Language="Hindi,English,Marathi";
+                    
+                    break;
+                case "australia":
+                    capital="Canberra";
+                    currency="Australian Dollar";
+                    Language="English"
+                    break;
+                case "bhutan":
+                    capital="Thimphu";
+                    currency="Bhutanese Ngultrum";
+                    Language="Drogkha";
+                    break;
+                case "canada":
+                    capital="Ottawa";
+                    currency="Canadian Dollar";
+                    Language="English,French";
+                    break;
+                case "denmark":
+                    capital="Copenhagen";
+                    currency="Danish Krone";
+                    Language="Danish";
+                    break;
+                case "egypt":
+                    capital="Cairo";
+                    currency="Egyptian Pound";
+                    Language="Arabic";
+                    break;
+                case "finland":
+                    capital="Helsinki";
+                    currency="Euro";
+                    Language="Finnish";
+                    break;
+                case "germany":
+                    capital="Berlin";
+                    currency="Euro";
+                    Language="German";
+                    break;
+                case "indonesia":
+                    capital="Jakarta";
+                    currency="Rupiah";
+                    Language="Indonesian";
+                    break;
+                case "jordan":
+                    capital="Amman";
+                    currency="Jordanian Dinar";
+                    Language="Arabic";
+                    break;
+                    default:
+                        alert("Please Select Your Country!");
+            }
+           
+            document.world.capital.value  = capital;
+            document.world.currency.value  = currency;
+            document.world.Language.value  = Language;
 
+        }
+
+    </script>
 </body>
-
 </html>
